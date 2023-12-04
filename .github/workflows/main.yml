@@ -15,7 +15,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
-          submodules: recursive
+          submodules: git submodule add https://github.com/tufu9441/maupassant-hexo.git blog/themes/maupassant
       - name: Use Node.js 16.x
         uses: actions/setup-node@v2
         with:
@@ -27,10 +27,10 @@ jobs:
           key: ${{ runner.OS }}-npm-cache-v2
           restore-keys: |
             ${{ runner.OS }}-npm-cache-v2
-      - name: Install themes
-        run: |
-          cd ./blog
-          git clone https://github.com/tufu9441/maupassant-hexo.git themes/maupassant
+      # - name: Install themes
+      #   run: |
+      #     cd ./blog
+      #     git clone https://github.com/tufu9441/maupassant-hexo.git themes/maupassant
       - name: Install Dependencies
         run: cd ./blog && npm install
       - name: Build
