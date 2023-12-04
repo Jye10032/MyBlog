@@ -1,5 +1,6 @@
 {
   "name": "hexo-site",
+  "home": "https://jye10032.github.io/MyBlog/",
   "version": "0.0.0",
   "private": true,
   "scripts": {
