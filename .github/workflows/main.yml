@@ -26,17 +26,21 @@ jobs:
         run: npm install -g hexo-cli
  
       - name: Installing NPM packages
-        run: cd blog && npm ci
+        run: |
+          cd blog
+          npm ci
  
       - name: Building project
-        run:  cd blog && hexo server
+        run:  |
+          cd blog
+          hexo server
  
  
       - name: Uploading production-ready build files
         uses: actions/upload-artifact@v2
         with:
           name: production-files
-          path: ./build
+          path: ./blog/build
  
   deploy:
     name: Deploy
@@ -49,10 +53,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: production-files
-          path: ./build
+          path: ./blog/build
  
       - name: Deploying to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./blog/build
