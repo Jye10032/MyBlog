@@ -58,8 +58,6 @@ jobs:
           repository-name: ${{ secrets.GITHUBUSERNAME }}/${{ secrets.GITHUBUSERNAME }}.github.io
           branch: main
           folder: public
-          clean-exclude: |
-            public/.github/
           commit-message: "${{ github.event.head_commit.message }} Updated By Github Actions"
 
 #      - name: 7. 部署到 github page # Deploy：github.io仓库中日志只保留最新
