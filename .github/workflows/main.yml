@@ -3,19 +3,17 @@ name: Pages
 on:
   push:
     branches:
-      - main  # default branch
+      - main # default branch
 
 jobs:
-  pages:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
-          submodules: git submodule add https://github.com/tufu9441/maupassant-hexo.git blog/themes/maupassant
+          submodules: true
       - name: Use Node.js 16.x
         uses: actions/setup-node@v2
         with:
@@ -24,19 +22,27 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.OS }}-npm-cache-v2
+          key: ${{ runner.OS }}-npm-cache
           restore-keys: |
-            ${{ runner.OS }}-npm-cache-v2
-      # - name: Install themes
-      #   run: |
-      #     cd ./blog
-      #     git clone https://github.com/tufu9441/maupassant-hexo.git themes/maupassant
+            ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
-        run: cd ./blog && npm install
+        run: npm install
       - name: Build
-        run: cd ./blog && npm run build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        run: npm run build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./blog/public
+          path: ./public
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
