@@ -26,13 +26,13 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
-        run: npm install
+        run: cd ./blog && npm install
       - name: Build
-        run: npm run build
+        run: cd ./blog && npm run build
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./blog/public
+          path: ./public
   deploy:
     needs: build
     permissions:
