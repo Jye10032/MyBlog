@@ -41,7 +41,7 @@ jobs:
       - name: 5. 安装依赖 # Install Dependencies 如果没有缓存或 插件有更新，则安装插件
         if: steps.cache-modules.outputs.cache-hit != 'true'
         run: | # **如果仓库里没有 package-lock.json，上传一下，npm ci 必须要有 package-lock.json**
-          npm ci
+          cd blog && npm ci
 
       - name: 6. 生成静态文件 # Generate，其中hexo algolia为algolia搜索，hexo gulp为全站压缩，如果没安装则按需删除
         run: |
