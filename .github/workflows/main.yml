@@ -31,7 +31,7 @@ jobs:
         id: cache-modules
         with:
           path: node_modules
-          key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
+          key: ${{runner.OS}}-${{hashFiles('**/blog/package-lock.json')}}
 
 #      - name: 安装主题
 #        run: |
@@ -47,9 +47,6 @@ jobs:
         run: |
           hexo clean
           hexo generate
-          hexo algolia
-          gulp
-          export TZ='Asia/Shanghai'
 
       - name: 7. 部署到 github page # Deploy：github.io仓库中保存每次提交日志 其中clean-exclude为hexo-seo-autopush插件配置，如果没安装则按需删除
         uses: JamesIves/github-pages-deploy-action@v4
