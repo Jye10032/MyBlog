@@ -29,6 +29,10 @@ jobs:
             ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
         run: cd ./blog && npm install
+      - name: Install themes
+        run: |
+          cd ./blog
+          git clone https://github.com/tufu9441/maupassant-hexo.git themes/maupassant
       - name: Build
         run: cd ./blog && npm run build
       - name: Deploy
