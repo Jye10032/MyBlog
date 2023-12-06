@@ -18,7 +18,6 @@ permalink: /404.html
 
 **<center><font size="25px">四零四</font></cener>**
 
-
 <script type="text/javascript">
 function countDown(secs, surl) {
     var jumpTo = document.getElementById('jumpTo');

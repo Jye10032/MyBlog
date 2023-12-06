@@ -6,3 +6,4 @@ tags:
 categories:
 - test
 ---
+It is a test page.
