@@ -18,7 +18,9 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://jye10032.github.io/MyBlog/
+## url: http://localhost:4000/
+## url: https://82.156.158.96/
+url: https://jye10032.github.io/
 permalink: :year/:month/:day/:hash/
 permalink_defaults:
   urlname: index  
@@ -107,4 +109,6 @@ theme: maupassant
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: git@82.156.158.96:/home/git/repos/blog.git
+  branch: master
