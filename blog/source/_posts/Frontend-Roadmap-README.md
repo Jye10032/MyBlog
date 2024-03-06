@@ -3,7 +3,7 @@ title: Frontend-Roadmap-README
 date: 2024-02-21 21:13:44
 urlname: Frontend-Roadmap-README
 tags: Frontend-Roadmap
-description:
+description: 按照 roadmap.sh 的文章进行学习的学习笔记，在这里统一记录进度。
 ---
 按照 [前端路线图](https://roadmap.sh/pdfs/roadmaps/frontend.pdf) 的文章进行学习的学习笔记，列表如下：
 
