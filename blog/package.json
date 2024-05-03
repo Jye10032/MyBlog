@@ -10,7 +10,7 @@
     "server": "hexo server"
   },
   "hexo": {
-    "version": "7.0.0"
+    "version": "7.2.0"
   },
   "dependencies": {
     "hexo": "^7.0.0",
@@ -25,6 +25,7 @@
     "hexo-renderer-sass-next": "^0.1.3",
     "hexo-renderer-stylus": "^3.0.0",
     "hexo-server": "^3.0.0",
+    "hexo-theme-icarus": "^6.0.0",
     "hexo-theme-landscape": "^1.0.0"
   }
 }
