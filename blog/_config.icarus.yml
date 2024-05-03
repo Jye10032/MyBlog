@@ -7,7 +7,7 @@ logo: /img/logo.svg
 # Page metadata configurations
 head:
     # URL or path to the website's icon
-    favicon: /img/favicon.svg
+    favicon: /img/avatar.png
     # Web application manifests configuration
     # https://developer.mozilla.org/en-US/docs/Web/Manifest
     manifest:
@@ -17,7 +17,7 @@ head:
         # when there is not enough space to display full name
         short_name: 
         # The start URL of the web application
-        start_url: 
+        start_url: https://jye10032.github.io/MyBlog/
         # The default theme color for the application
         theme_color: 
         # A placeholder background color for the application page to display
@@ -118,7 +118,7 @@ navbar:
 # Page footer configurations
 footer:
     # Copyright text
-    copyright: © 2019
+    copyright: © 2024
     # Links to be shown on the right of the footer section
     links:
         Creative Commons:
