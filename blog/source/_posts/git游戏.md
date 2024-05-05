@@ -3,9 +3,9 @@ title: git游戏
 toc: true
 date: 2024-05-04 22:05:17
 tags: 工具向
-description: 学习如何使用git的小游戏
+excerpt: 这是一篇关于使用git的小游戏教程的学习笔记
 ---
-基础篇：
+## 基础篇：
 
 ### 第一关：学习git commit
 
@@ -87,3 +87,114 @@ git commit
 git checkout bugFix
 git rebase main
 ```
+
+## 进阶篇：
+
+### 第一关：分离 HEAD
+
+”
+
+HEAD 是一個 reference，它是指向目前所 checkout 的 commit，基本上，其實就是你目前所在的 commit。
+
+在 commit tree 中，HEAD 總是指向最近的一次 commit。大部份 git 的指令如果要修改 commit tree 的狀態的話，都會先改變 HEAD 所指向的 commit。
+
+“
+
+![img](/img/QQ截图20240505201157.png)
+
+直接 checkout 到指定的 hash 值（圆圈里的值）即可
+
+```
+git checkout c4
+```
+
+### 第二关：相对引用
+
+”
+
+如果要在 git 中移動，透過指定 commit 的 hash 值的方式會變得比較麻煩。在實際例子中，你的終端機上面不會出現漂亮且具備視覺效果的 commit tree，所以你不得不用 `git log` 來查詢 hash 值。
+
+另外，hash 值的長度在真實的 git 環境中很長。舉個例子，前一個關卡的介紹中的 commit 的 hash 值是 `fed2da64c0efc5293610bdd892f82a58e8cbc5d8`。舌頭不要打結了...
+
+幸運的是，git 對於處理 hash 值很有一套。你只需要提供能夠唯一辨識出該 commit 的前幾個字元就可以了。所以，我可以只輸入 `fed2` 而不是上面的一長串字元。
+
+
+使用相對引用，你可以從一個易於記憶的地方（比如說 branch 名稱 `bugFix` 或 `HEAD`）開始工作。
+
+相對引用非常好用，這裡我介紹兩個簡單的用法：
+
+* 使用 `^` 向上移動一個 commit
+* 使用 `~<num>` 向上移動多個 commit
+
+
+插入（^）這一個符號。把這個符號接在某一個 reference 後面，就表示你告訴 git 去找到該 reference 所指向的 commit 的 parent commit。
+
+所以 `main^` 相當於 "`main` 的 parent commit"。
+
+`main^^` 是 `main` 的 grandparent commit（往前推兩代）
+
+切換到 main的 parent commit
+
+“
+
+![img](/img/QQ截图20240505201825.png)
+
+切换到 bugFix 分支向前移动一次即可
+
+```
+git checkout bugFix^
+```
+
+### 第三关：相对引用（2）
+
+”
+
+ Git 也加入了波浪（~）符號。
+
+波浪符號後面可以選擇一個數字（你也可以不選擇），該數字可以告訴 Git 我要向上移動多少個 commit,举例说明：
+
+`git checkout HEAD~4`
+
+可以使用 `-f` 選項直接讓分支指向另一個 commit。舉個例子:
+
+`git branch -f main HEAD~3`
+
+“
+
+![img](/img/QQ截图20240505202256.png)
+
+```
+git checkout c1
+git branch -f bugFix bugFix~3
+git branch -f main c6
+```
+
+### 第四关：在git中取消修改
+
+"
+
+在 git 裡主要用兩種方法來取消修改，一種是 `git reset`，另外一種是 `git revert`。
+
+
+`git reset` 把分支的參考點退回到上一個 commit 來取消修改。你可以認為這是在"重寫歷史"。`git reset` 往回移動 branch，原來的 branch 所指向的 commit 好像從來沒有存在過一樣。
+
+
+雖然在你的 local branch 中使用 `git reset` 很方便，但是這種「改寫歷史」的方法對別人的 remote branch 是無效的哦！
+
+為了取消修改並且把這個狀態*分享*給別人，我們需要使用 `git revert`。新的 commit `C2'` 引入了 *修改* ——用來表示我們取消 `C2` 這個 commit 的修改。
+
+"
+
+总结：git reset 相当于在本地回退到某个commit 版本，但是对别人没有影响，git reset相当于更新了一个包括修改的版本。
+
+![img](/img/QQ截图20240505203132.png)
+
+对c1进行reset，c2进行revert
+
+```
+git reset c1
+git checkout pushed
+git revert c2 
+```
+
+## 调整提交顺序：
