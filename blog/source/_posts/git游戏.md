@@ -3,8 +3,10 @@ title: git游戏
 toc: true
 date: 2024-05-04 22:05:17
 tags: 工具向
-excerpt: 这是一篇关于使用git的小游戏教程的学习笔记
+excerpt: 这是一篇关于使用git的Learn Git Branching小游戏教程的学习笔记
 ---
+链接：https://learngitbranching.js.org/?locale=zh_CN
+
 ## 基础篇：
 
 ### 第一关：学习git commit
@@ -118,14 +120,12 @@ git checkout c4
 
 幸運的是，git 對於處理 hash 值很有一套。你只需要提供能夠唯一辨識出該 commit 的前幾個字元就可以了。所以，我可以只輸入 `fed2` 而不是上面的一長串字元。
 
-
 使用相對引用，你可以從一個易於記憶的地方（比如說 branch 名稱 `bugFix` 或 `HEAD`）開始工作。
 
 相對引用非常好用，這裡我介紹兩個簡單的用法：
 
 * 使用 `^` 向上移動一個 commit
 * 使用 `~<num>` 向上移動多個 commit
-
 
 插入（^）這一個符號。把這個符號接在某一個 reference 後面，就表示你告訴 git 去找到該 reference 所指向的 commit 的 parent commit。
 
@@ -175,9 +175,7 @@ git branch -f main c6
 
 在 git 裡主要用兩種方法來取消修改，一種是 `git reset`，另外一種是 `git revert`。
 
-
 `git reset` 把分支的參考點退回到上一個 commit 來取消修改。你可以認為這是在"重寫歷史"。`git reset` 往回移動 branch，原來的 branch 所指向的 commit 好像從來沒有存在過一樣。
-
 
 雖然在你的 local branch 中使用 `git reset` 很方便，但是這種「改寫歷史」的方法對別人的 remote branch 是無效的哦！
 
