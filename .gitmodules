@@ -1,9 +1,6 @@
 [submodule "blog/themes/maupassant"]
 	path = blog/themes/maupassant
 	url = https://github.com/Jye10032/maupassant-hexo.git
-[submodule "blog/theme/stellar"]
-	path = blog/theme/stellar
-	url = https://github.com/xaoxuu/hexo-theme-stellar.git
 [submodule "blog/themes/stellar"]
 	path = blog/themes/stellar
 	url = https://github.com/xaoxuu/hexo-theme-stellar.git
