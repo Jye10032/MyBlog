@@ -3,4 +3,4 @@
 	url = https://github.com/Jye10032/maupassant-hexo.git
 [submodule "blog/themes/stellar"]
 	path = blog/themes/stellar
-	url = https://github.com/xaoxuu/hexo-theme-stellar.git
+	url = https://github.com/Jye10032/hexo-theme-stellar.git
