@@ -2,7 +2,8 @@
 title: git游戏
 toc: true
 date: 2024-05-04 22:05:17
-tags: 工具向
+tags: 工具
+categories: 2024学习笔记
 excerpt: 这是一篇关于使用git的Learn Git Branching小游戏教程的学习笔记
 ---
 链接：https://learngitbranching.js.org/?locale=zh_CN
