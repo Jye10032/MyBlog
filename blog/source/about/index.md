@@ -7,10 +7,8 @@ title: 关于
 h1: ''
 nav_tabs: true
 sidebar: [ welcome, recent]
+comments: true
 ---
-
-
-
 {% timeline %}
 
 <!-- node 2024 年 5 月 21 日 -->
