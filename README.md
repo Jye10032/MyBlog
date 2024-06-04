@@ -1,6 +1,6 @@
 # MyBlog
 
-简介:使用hexo搭建的个人博客网站，主题链接：https://github.com/tufu9441/maupassant-hexo/
+简介:使用hexo搭建的个人博客网站
 
 博客功能
 
@@ -16,7 +16,13 @@
 * [X] 留言板功能
 * [ ] 友链功能
 
-2-21：
+06-03：
+
+    -更新主题为 stellar
+
+    -评论系统由 gitalk 更新为 giscus
+
+02-21：
 
     - 修复了点击 tag 出现 404 的情况
 
