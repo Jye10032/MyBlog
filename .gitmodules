@@ -4,3 +4,7 @@
 [submodule "blog/themes/stellar"]
 	path = blog/themes/stellar
 	url = https://github.com/Jye10032/hexo-theme-stellar.git
+
+[submodule "blog/themes/hexo-theme-cactus"]
+	path = blog/themes/hexo-theme-cactus
+	url =https://github.com/Jye10032/hexo-theme-cactus.git
